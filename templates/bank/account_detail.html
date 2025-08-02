@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Account Detail</h1>
+<ul>
+  <li>Number: {{ account.account_number }}</li>
+  <li>Customer: {{ account.customer }}</li>
+  <li>Type: {{ account.account_type }}</li>
+  <li>Balance: {{ account.balance }}</li>
+  <li>Date opened: {{ account.date_opened }}</li>
+  <li>Status: {{ account.status }}</li>
+</ul>
+<a href="{% url 'account_edit' account.pk %}">Edit</a> |
+<a href="{% url 'account_list' %}">Back to list</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Loans</h1>
+<a href="{% url 'loan_add' %}">Add Loan</a>
+<table>
+  <thead>
+    <tr><th>ID</th><th>Type</th><th>Amount</th><th>Balance</th><th>Status</th><th>Date Approved</th></tr>
+  </thead>
+  <tbody>
+    {% for loan in loans %}
+    <tr>
+      <td>{{ loan.loan_id }}</td>
+      <td>{{ loan.loan_type }}</td>
+      <td>{{ loan.amount }}</td>
+      <td>{{ loan.loan_balance }}</td>
+      <td>{{ loan.loan_status }}</td>
+      <td>{{ loan.date_approved }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="6">No loans found.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

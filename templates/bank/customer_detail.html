@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Customer Detail</h1>
+<ul>
+  <li>Salutation: {{ customer.salutation }}</li>
+  <li>First name: {{ customer.first_name }}</li>
+  <li>Middle name: {{ customer.middle_name }}</li>
+  <li>Last name: {{ customer.last_name }}</li>
+  <li>ID number: {{ customer.id_number }}</li>
+  <li>Phone: {{ customer.phone_number }}</li>
+  <li>Email: {{ customer.email }}</li>
+  <li>Date of birth: {{ customer.date_of_birth }}</li>
+  <li>Tax number: {{ customer.tax_number }}</li>
+  <li>Country: {{ customer.country }}</li>
+  <li>County: {{ customer.county }}</li>
+  <li>City: {{ customer.city }}</li>
+  <li>PO Box: {{ customer.po_box }}</li>
+</ul>
+<a href="{% url 'customer_edit' customer.pk %}">Edit</a> |
+<a href="{% url 'customer_list' %}">Back to list</a>
+{% endblock %}
