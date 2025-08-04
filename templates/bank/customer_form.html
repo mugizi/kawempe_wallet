@@ -1,10 +1,103 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>{{ view.object|yesno:"Edit Customer,Add Customer" }}</h1>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Save</button>
-</form>
-<a href="{% url 'customer_list' %}">Back to list</a>
+<div class="container">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h1 class="mb-4">{{ view.object|yesno:"Edit Customer,Add Customer" }}</h1>
+      <form method="post" novalidate>
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+          <div class="alert alert-danger">
+            {{ form.non_field_errors }}
+          </div>
+        {% endif %}
+
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label for="{{ form.salutation.id_for_label }}" class="form-label">{{ form.salutation.label }}</label>
+            {{ form.salutation }}
+            {% for err in form.salutation.errors %}
+              <div class="invalid-feedback d-block">{{ err }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="col-md-5">
+            <label for="{{ form.first_name.id_for_label }}" class="form-label">{{ form.first_name.label }}</label>
+            {{ form.first_name }}
+            {% for err in form.first_name.errors %}
+              <div class="invalid-feedback d-block">{{ err }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="col-md-5">
+            <label for="{{ form.middle_name.id_for_label }}" class="form-label">{{ form.middle_name.label }}</label>
+            {{ form.middle_name }}
+            {% for err in form.middle_name.errors %}
+              <div class="invalid-feedback d-block">{{ err }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="col-md-6">
+            <label for="{{ form.last_name.id_for_label }}" class="form-label">{{ form.last_name.label }}</label>
+            {{ form.last_name }}
+            {% for err in form.last_name.errors %}
+              <div class="invalid-feedback d-block">{{ err }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="col-md-6">
+            <label for="{{ form.id_number.id_for_label }}" class="form-label">{{ form.id_number.label }}</label>
+            {{ form.id_number }}
+            {% for err in form.id_number.errors %}
+              <div class="invalid-feedback d-block">{{ err }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="col-md-6">
+            <label for="{{ form.phone_number.id_for_label }}" class="form-label">{{ form.phone_number.label }}</label>
+            {{ form.phone_number }}
+            {% for err in form.phone_number.errors %}
+              <div class="invalid-feedback d-block">{{ err }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="col-md-6">
+            <label for="{{ form.email.id_for_label }}" class="form-label">{{ form.email.label }}</label>
+            {{ form.email }}
+            {% for err in form.email.errors %}
+              <div class="invalid-feedback d-block">{{ err }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="col-md-6">
+            <label for="{{ form.date_of_birth.id_for_label }}" class="form-label">{{ form.date_of_birth.label }}</label>
+            {{ form.date_of_birth }}
+            {% for err in form.date_of_birth.errors %}
+              <div class="invalid-feedback d-block">{{ err }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="col-md-6">
+            <label for="{{ form.location.id_for_label }}" class="form-label">{{ form.location.label }}</label>
+            {{ form.location }}
+            {% for err in form.location.errors %}
+              <div class="invalid-feedback d-block">{{ err }}</div>
+            {% endfor %}
+          </div>
+
+
+
+
+
+        </div>
+
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <a href="{% url 'customer_list' %}" class="btn btn-secondary ms-2">Back to list</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

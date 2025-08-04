@@ -6,23 +6,35 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>{% block title %}Bank App{% endblock %}</title>
     {% load static %}
+            <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css"
+/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
 </head>
 
 <body>
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
-            <h3>M<span>odern</span></h3>
+            <span style="color: white;">Kawempe Wallet</span> 
         </div>
 
         <div class="side-content">
             <div class="profile">
                 <div class="profile-img bg-img" style="background-image: url(img/3.jpeg)"></div>
-                <h4>David Green</h4>
-                <small>Art Director</small>
+                <h4>{{ user.get_full_name|default:user.username }}</h4>
+                <small>{{ user.profile.get_role_display }}</small>
             </div>
 
             <div class="side-menu">
@@ -34,30 +46,36 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'customer_list' %}">
+                        <a href="">
                             <span class="las la-user-cog"></span>
                             <small>Users</small>
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'account_list' %}">
+                        <a href="{% url 'customer_list' %}">
                             <span class="las la-users"></span>
                             <small>Members</small>
                         </a>
                     </li>
+                                        <li>
+                        <a href="{% url 'account_list' %}">
+                            <span class="las la-hands-helping"></span>
+                            <small>Accounts</small>
+                        </a>
+                    </li>
                     <li>
-                        <a href="{% url 'transaction_list' %}">
+                        <a href="{% url 'loan_list' %}">
                             <span class="las la-hands-helping"></span>
                             <small>Loans</small>
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'loan_list' %}">
+                        <a href="{% url 'transaction_list' %}">
                             <span class="las la-exchange-alt"></span>
                             <small>Transactions</small>
                         </a>
                     </li>
-    
+
 
                 </ul>
             </div>
@@ -100,10 +118,7 @@
 
 
         <main>
-            <div class="page-header">
-                <h1>Dashboard</h1>
-                <small>Home / Dashboard</small>
-            </div>
+
 
             <div class="page-content">
 
@@ -114,5 +129,22 @@
 
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script
+    src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"
+  ></script>
+  <script>
+    $(document).ready(function() {
+      $('#customers-table').DataTable({
+        // You can tweak these options to suit your needs:
+        pageLength: 10,
+        ordering:  true,
+        searching: true,
+      });
+    });
+  </script>
+{% block extra_js %}{% endblock %}
 
 </html>

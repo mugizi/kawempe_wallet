@@ -1,4 +1,6 @@
 from django.urls import reverse_lazy
+from django.db.models import Value, CharField
+from django.db.models.functions import Concat
 from django.views.generic import (
     TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 )     
@@ -39,11 +41,27 @@ class CustomerDeleteView(DeleteView):
     success_url = reverse_lazy('customer_list')
 
 # Account Views
+
 class AccountListView(ListView):
     model = Account
     template_name = 'bank/account_list.html'
     context_object_name = 'accounts'
 
+    def get_queryset(self):
+        # pull in the related customer in one go, and build a "account_name" field
+        return (
+            super()
+            .get_queryset()
+            .select_related('customer')
+            .annotate(
+                account_name=Concat(
+                    'customer__first_name',
+                    Value(' '),
+                    'customer__last_name',
+                    output_field=CharField(),
+                )
+            )
+        )
 class AccountDetailView(DetailView):
     model = Account
     template_name = 'bank/account_detail.html'

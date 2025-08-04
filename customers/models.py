@@ -5,33 +5,52 @@ import random
 import uuid
 
 
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+
 class Customer(models.Model):
     class Salutation(models.TextChoices):
-        MR = 'Mr', _('Mr.')
-        MRS = 'Mrs', _('Mrs.')
-        MS = 'Ms', _('Ms.')
-        DR = 'Dr.', _('Dr.')
-        PROF = 'Prof.', _('Prof.')
-        REV = 'Rev.', _('Rev.')
+        MR   = 'Mr',   _('Mr.')
+        MRS  = 'Mrs',  _('Mrs.')
+        MS   = 'Ms',   _('Ms.')
+        DR   = 'Dr.',  _('Dr.')
+        PROF = 'Prof.',_('Prof.')
+        REV  = 'Rev.', _('Rev.')
 
-    salutation = models.CharField(
-        max_length=5, choices=Salutation.choices, default=Salutation.MR)
-    first_name = models.CharField(max_length=100)
-    middle_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    id_number = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=100)
-    email = models.EmailField()
-    date_of_birth = models.DateField()
-    tax_number = models.CharField(max_length=100)
+    salutation    = models.CharField(
+        max_length=5,
+        choices=Salutation.choices,
+        default=Salutation.MR
+    )
+    first_name    = models.CharField(max_length=100)
+    middle_name   = models.CharField(
+        max_length=100,
+        blank=True,    # not required on forms
+        null=True      # allows NULL in the DB
+    )
+    last_name     = models.CharField(max_length=100)
+    id_number     = models.CharField(max_length=100)
+    phone_number  = models.CharField(
+        max_length=100,
+        blank=True     # optional to supply
+    )
+    email         = models.EmailField(
+        blank=True     # optional to supply
+    )
+    date_of_birth = models.DateField(
+        blank=True,
+        null=True
+    )
+
     # Address
-    country = models.CharField(max_length=100)
-    county = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-    po_box = models.IntegerField()
+    location       = models.CharField(max_length=100)
+
+
+
 
     def __str__(self):
-        return self.first_name
+        return f"{self.first_name} {self.last_name}"
+
 
 
 class Account(models.Model):

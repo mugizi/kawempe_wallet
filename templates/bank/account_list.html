@@ -1,43 +1,55 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Accounts</h1>
-<a href="{% url 'account_add' %}">Add Account</a>
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th><span class="las la-sort"></span> ACCOUNT NAME</th>
-                                    <th><span class="las la-sort"></span> ACCOUNT NUMBER</th>
-                                    <th><span class="las la-sort"></span> TYPE</th>
-                                    <th><span class="las la-sort"></span> BALANCE</th>
-                                    <th><span class="las la-sort"></span> STATUS</th>
-                                    <th><span class="las la-sort"></span> ACTIONS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                               {% for account in accounts %}
-                              <tr>
-                              <td></td>
-                              <td></td>
-                              
-                 
-                              <td>{{ account.account_number }}</td>
-                              <td>{{ account.account_type }}</td>
-                              
-                              <td>{{ account.balance }}</td>
-                              <td>{{ account.status }}</td>
-                                                                  <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
+  {% block extra_css %}
 
-                            </tbody>
-                            </tr>
-                                {% empty %}
-    <tr><td colspan="5">No accounts found.</td></tr>
+
+  {% endblock %}
+<div class="d-flex justify-content-between align-items-center mb-3" >
+  <h1 class="h3 m-0">Accounts</h1>
+  {# keep this here in case JS fails; Buttons will also generate their own #}
+  <a href="{% url 'account_add' %}" class="btn btn-primary btn-sm">
+    Add Account
+  </a>
+</div>
+
+
+<table width="100%" id="customers-table" class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ACCOUNT NAME</th>
+            <th> ACCOUNT NUMBER</th>
+            <th> TYPE</th>
+            <th> BALANCE</th>
+            <th> STATUS</th>
+            <th> ACTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for account in accounts %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ account.account_name }}</td>
+
+
+            <td>{{ account.account_number }}</td>
+            <td>{{ account.account_type }}</td>
+
+            <td>{{ account.balance }}</td>
+            <td>{{ account.status }}</td>
+            <td>
+                <div class="actions d-flex">
+                    <a href="" class="lab la-telegram-plane text-primary me-3" title="Send Message"></a>
+                    <a href="" class="las la-eye text-secondary" title="View Profile"></a>
+                </div>
+            </td>
+
+    </tbody>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No accounts found.</td>
+    </tr>
     {% endfor %}
-                        </table>
+</table>
 {% endblock %}

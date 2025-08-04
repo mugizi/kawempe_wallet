@@ -28,7 +28,7 @@ class CustomerAdmin(admin.ModelAdmin):
         'phone_number',
     )
     search_fields = ('first_name', 'last_name', 'email', 'id_number')
-    list_filter = ('salutation', 'country', 'city')
+    list_filter = ('salutation',)
     ordering = ('last_name',)
     
 
