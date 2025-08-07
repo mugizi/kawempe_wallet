@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Edit Profile</title>
+</head>
+<body>
+  <h1>Edit Profile</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+      {{ form.role.label_tag }}
+      {{ form.role }}
+    </div>
+    <div>
+      {{ form.profile_image.label_tag }}
+      {{ form.profile_image }}
+    </div>
+    <button type="submit">Save</button>
+  </form>
+</body>
+</html>

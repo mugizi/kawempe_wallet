@@ -10,10 +10,10 @@ Otherwise you can paste them directly into your
 
   {% block content %}
   <div class="d-flex justify-content-between align-items-center mb-3" >
-  <h1 class="h3 m-0">Customers</h1>
+  <h1 class="h3 m-0">Members</h1>
   {# keep this here in case JS fails; Buttons will also generate their own #}
   <a href="{% url 'customer_add' %}" class="btn btn-primary btn-sm">
-    Add Customer
+    Add Member
   </a>
 </div>
 
@@ -23,6 +23,7 @@ Otherwise you can paste them directly into your
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Contact</th>
         <th>Email</th>
         <th>Actions</th>
       </tr>
@@ -31,7 +32,8 @@ Otherwise you can paste them directly into your
       {% for customer in customers %}
       <tr>
         <td>{{ customer.id }}</td>
-        <td>{{ customer.first_name }} {{ customer.last_name }}</td>
+        <td>{{ customer.salutation }}. {{ customer.first_name }} {{ customer.last_name }}</td>
+        <td>{{ customer.phone_number }}</td>
         <td>{{ customer.email }}</td>
             <td>
                 <div class="actions d-flex">

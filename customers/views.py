@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.db.models import Value, CharField
 from django.db.models.functions import Concat
@@ -79,10 +80,13 @@ class AccountUpdateView(UpdateView):
     template_name = 'bank/account_form.html'
     success_url = reverse_lazy('account_list')
 
-class AccountDeleteView(DeleteView):
-    model = Account
-    template_name = 'bank/account_confirm_delete.html'
-    success_url = reverse_lazy('account_list')
+
+
+def delete_account(request, pk):
+    if request.method == 'POST':
+        account = get_object_or_404(Account, pk=pk)
+        account.delete()
+    return redirect('account_list')
 
 # Transaction Views
 class TransactionListView(ListView):
@@ -107,3 +111,5 @@ class LoanCreateView(CreateView):
     form_class = LoanForm
     template_name = 'bank/loan_form.html'
     success_url = reverse_lazy('loan_list')
+
+

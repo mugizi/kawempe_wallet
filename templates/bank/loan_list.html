@@ -1,23 +1,47 @@
+
 {% extends 'base.html' %}
 {% block content %}
-<h1>Loans</h1>
-<a href="{% url 'loan_add' %}">Add Loan</a>
-<table>
+  {% block extra_css %}
+  {% endblock %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h3 m-0">Loans</h1>
+  <a href="{% url 'loan_add' %}" class="btn btn-primary btn-sm">
+    Add Loan
+  </a>
+</div>
+
+<table width="100%" id="customers-table" class="table table-striped table-hover table-bordered">
   <thead>
-    <tr><th>ID</th><th>Type</th><th>Amount</th><th>Balance</th><th>Status</th><th>Date Approved</th></tr>
+    <tr>
+
+      <th>Account</th>
+      <th>Customer</th>
+
+      <th>TYPE</th>
+      <th>Principle Amount</th>
+      <th>Loan Balance</th>
+      <th>STATUS</th>
+      <th>Date Approved</th>
+    </tr>
   </thead>
   <tbody>
     {% for loan in loans %}
     <tr>
-      <td>{{ loan.loan_id }}</td>
+      <td>{{ loan.account.account_number }}</td>
+      <td>{{ loan.account.customer.first_name }} {{ loan.account.customer.last_name }}</td>
+      
       <td>{{ loan.loan_type }}</td>
       <td>{{ loan.amount }}</td>
       <td>{{ loan.loan_balance }}</td>
       <td>{{ loan.loan_status }}</td>
       <td>{{ loan.date_approved }}</td>
+
     </tr>
     {% empty %}
-    <tr><td colspan="6">No loans found.</td></tr>
+    <tr>
+      <td colspan="8" class="text-center">No accounts found.</td>
+    </tr>
     {% endfor %}
   </tbody>
 </table>

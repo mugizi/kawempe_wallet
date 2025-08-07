@@ -1,7 +1,9 @@
+{% load django_browser_reload %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    {% django_browser_reload_script %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>{% block title %}Bank App{% endblock %}</title>
@@ -46,7 +48,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{% url 'register' %}">
                             <span class="las la-user-cog"></span>
                             <small>Users</small>
                         </a>

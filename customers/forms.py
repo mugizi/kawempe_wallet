@@ -33,14 +33,30 @@ class AccountForm(forms.ModelForm):
         fields = [
             'customer', 'account_type', 'balance', 'status'
         ]
+        widgets = {
+            'customer':    forms.Select(attrs={'class': 'form-select'}),
+            'account_type':    forms.Select(attrs={'class': 'form-select'}),
+            'balance':   forms.TextInput(attrs={'class': 'form-control'}),
+            'status':     forms.Select(attrs={'class': 'form-select'}),
 
+
+        }
 class TransactionForm(forms.ModelForm):
     class Meta:
         model = Transaction
         fields = [
-            'transaction_type', 'amount', 'description',
-            'account', 'served_by'
+            'transaction_type',
+            'amount',
+            'description',
+            'account',
+            'served_by',
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for f in self.fields.values():
+            f.widget.attrs.update({'class': 'form-control'})
+
 
 class LoanForm(forms.ModelForm):
     class Meta:

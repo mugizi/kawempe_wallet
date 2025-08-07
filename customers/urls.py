@@ -1,11 +1,12 @@
+from django import views
 from django.urls import path
 from .views import (
     HomeView, CustomerListView, CustomerDetailView, CustomerCreateView,
     CustomerUpdateView, CustomerDeleteView,
     AccountListView, AccountDetailView, AccountCreateView,
-    AccountUpdateView, AccountDeleteView,
+    AccountUpdateView,
     TransactionListView, TransactionCreateView,
-    LoanListView, LoanCreateView
+    LoanListView, LoanCreateView, delete_account
 )
 
 urlpatterns = [
@@ -22,7 +23,8 @@ urlpatterns = [
     path('accounts/add/', AccountCreateView.as_view(), name='account_add'),
     path('accounts/<str:pk>/', AccountDetailView.as_view(), name='account_detail'),
     path('accounts/<str:pk>/edit/', AccountUpdateView.as_view(), name='account_edit'),
-    path('accounts/<str:pk>/delete/', AccountDeleteView.as_view(), name='account_delete'),
+    path('accounts/<str:pk>/delete/', delete_account, name='account_delete'),
+
 
     # Transaction URLs
     path('transactions/', TransactionListView.as_view(), name='transaction_list'),
