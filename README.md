@@ -66,5 +66,5 @@ This project is open source under the MIT License. You are free to use, modify, 
 Author
 
 Developed by Adrian Mugizi
-YouTube Channel: [Your Channel Name]
+YouTube Channel: https://www.youtube.com/@dualhubtechnologiesuganda8653
 GitHub: https://github.com/mugizi
