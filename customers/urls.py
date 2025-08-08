@@ -1,5 +1,7 @@
 from django import views
 from django.urls import path
+
+from users.views import login_view
 from .views import (
     HomeView, CustomerListView, CustomerDetailView, CustomerCreateView,
     CustomerUpdateView, CustomerDeleteView,
@@ -10,7 +12,8 @@ from .views import (
 )
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
+    path('home/', HomeView.as_view(), name='home'),
+    path('', login_view, name='login'),
     # Customer URLs
     path('customers/', CustomerListView.as_view(), name='customer_list'),
     path('customers/add/', CustomerCreateView.as_view(), name='customer_add'),

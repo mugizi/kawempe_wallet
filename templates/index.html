@@ -1,17 +1,16 @@
+
 {% extends 'base.html' %}
 {% block content %}
-        
-
-            
+{% load static %}
                 <div class="analytics">
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>107,200</h2>
+                            <h2>2</h2>
                             <span class="las la-user-friends"></span>
                         </div>
                         <div class="card-progress">
-                            <small>User activity this month</small>
+                            <small>Registered members</small>
                             <div class="card-indicator">
                                 <div class="indicator one" style="width: 60%"></div>
                             </div>
@@ -20,7 +19,7 @@
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>340,230</h2>
+                            <h2>346</h2>
                             <span class="las la-eye"></span>
                         </div>
                         <div class="card-progress">
@@ -33,11 +32,11 @@
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>$653,200</h2>
+                            <h2>Ugx 687000</h2>
                             <span class="las la-shopping-cart"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Monthly revenue growth</small>
+                            <small>Total savings</small>
                             <div class="card-indicator">
                                 <div class="indicator three" style="width: 65%"></div>
                             </div>
@@ -46,11 +45,11 @@
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>47,500</h2>
+                            <h2>3</h2>
                             <span class="las la-envelope"></span>
                         </div>
                         <div class="card-progress">
-                            <small>New E-mails received</small>
+                            <small>Pending loans</small>
                             <div class="card-indicator">
                                 <div class="indicator four" style="width: 90%"></div>
                             </div>
@@ -68,7 +67,8 @@
                             <select name="" id="">
                                 <option value="">ID</option>
                             </select>
-                            <button>Add record</button>
+                           
+                            
                         </div>
 
                         <div class="browse">
@@ -84,10 +84,10 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th><span class="las la-sort"></span> CLIENT</th>
-                                    <th><span class="las la-sort"></span> TOTAL</th>
+                                    <th><span class="las la-sort"></span> Member</th>
+                                    <th><span class="las la-sort"></span> loan Eariers</th>
                                     <th><span class="las la-sort"></span> ISSUED DATE</th>
-                                    <th><span class="las la-sort"></span> BALANCE</th>
+                                    <th><span class="las la-sort"></span> TOTAL BALANCE</th>
                                     <th><span class="las la-sort"></span> ACTIONS</th>
                                 </tr>
                             </thead>
@@ -96,21 +96,21 @@
                                     <td>#5033</td>
                                     <td>
                                         <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
+                                           <div class="client-img bg-img" style="background-image: url('{% static "images/avata.png" %}')"></div>
                                             <div class="client-info">
-                                                <h4>Andrew Bruno</h4>
-                                                <small>bruno@crossover.org</small>
+                                                <h4>Adrian mugizi</h4>
+                                                <small>mugizi@gmail.com</small>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        $3171
+                                        Ugx. 317100
                                     </td>
                                     <td>
                                         19 April, 2022
                                     </td>
                                     <td>
-                                        -$205
+                                         Ugx. 205000056
                                     </td>
                                     <td>
                                         <div class="actions">
@@ -120,221 +120,27 @@
                                         </div>
                                     </td>
                                 </tr>
+
+
                                 <tr>
                                     <td>#5033</td>
                                     <td>
                                         <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
+                                           <div class="client-img bg-img" style="background-image: url('{% static "images/avata.png" %}')"></div>
                                             <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
+                                                <h4>Sentamu Derick</h4>
+                                                <small>mugizi@gmail.com</small>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        $3171
+                                        ugx 217100
                                     </td>
                                     <td>
                                         19 April, 2022
                                     </td>
                                     <td>
-                                        -$205
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $2171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        <span class="paid">Paid</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Andrew Bruno</h4>
-                                                <small>bruno@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $3171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        -$205
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $3171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        <span class="paid">Paid</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $2171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        <span class="paid">Paid</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Andrew Bruno</h4>
-                                                <small>bruno@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $3171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        -$205
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $3171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        -$205
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $2171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        <span class="paid">Paid</span>
+                                        ugx 217100
                                     </td>
                                     <td>
                                         <div class="actions">

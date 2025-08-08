@@ -1,0 +1,35 @@
+
+{% load django_browser_reload %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% django_browser_reload_script %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>{% block title %}login{% endblock %}</title>
+        
+    {% load static %}
+
+<link rel="stylesheet" href="{% static 'css/loginstyle.css' %}">
+</head>
+
+<body>
+        <div class="login-container">
+        <P >USERNAME:<span style="font-weight: 800;">admin</span>, PASSWORD: <SPAN style="font-weight: 800;">123</SPAN></P>
+        <h2 style="color: rgb(84, 84, 240);">KAWEMPE SACCO</h2>
+        <h2>Login</h2>
+        {% if error %}<p class="error">{{ error }}</p>{% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <label>Username</label>
+            <input type="text" name="username" required>
+            <label>Password</label>
+            <input type="password" name="password" required>
+            <button  type="submit" style="background-color: rgb(84, 84, 240); color: aliceblue;">Sign in</button>
+        </form>
+    </div>
+
+</body>
+    <script src="{% static 'js/script.js' %}"></script>
+</html>

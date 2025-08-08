@@ -42,13 +42,13 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                        <a href="/" class="active">
+                        <a href="{% url 'home' %}" class="active">
                             <span class="las la-home"></span>
                             <small>Dashboard</small>
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'register' %}">
+                        <a href="{% url 'account_list' %}">
                             <span class="las la-user-cog"></span>
                             <small>Users</small>
                         </a>
